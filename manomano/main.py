@@ -1,0 +1,4 @@
+
+import pipelines
+
+pipelines.SeminarPipeline()
