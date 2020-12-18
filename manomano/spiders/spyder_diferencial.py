@@ -5,7 +5,7 @@ from scrapy.linkextractors import LinkExtractor
 
 class ManoManoSpyder(scrapy.Spider):
 
-    name = 'manomano_diferenciales'
+    name = 'manomano'
     allowed_domains = ['manomano.fr']
     start_urls = ['https://www.manomano.fr/interrupteur-et-disjoncteur-differentiel-2013',
                   'https://www.manomano.fr/disjoncteur-modulaire-220',
@@ -23,8 +23,7 @@ class ManoManoSpyder(scrapy.Spider):
         product_transport = response.xpath('*//div[@class="characteristic__label"]/text()').extract()
         product_brand = response.xpath('*//div[@class="image-block product-card-root__image-block"]').extract()
         product_url = response.xpath('*//div[@class="product-card-root products__product card-root"]/a/@href').extract()
-        print("uoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo")
-        print(response.request.url)
+
         cat = response.request.url.split('/')[-1]
 
         row_data = zip(product_title, product_price, product_b2b, product_business_score, product_transport,
